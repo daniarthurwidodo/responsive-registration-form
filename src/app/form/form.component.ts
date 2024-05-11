@@ -49,7 +49,7 @@ export class FormComponent {
             if(this.apiResponse.status == 0) {
               console.log('network error');
               modal.hide();
-              alert('backend not running! check documentation <br> https://github.com/daniarthurwidodo/responsive-registration-form')
+              alert('backend not running! check documentation https://github.com/daniarthurwidodo/responsive-registration-form')
             }
             for (let index = 0; index < errorArray.length; index++) {
               this.registrationForm.get(errorArray[index].path)?.setErrors({ 'incorrect': true })
