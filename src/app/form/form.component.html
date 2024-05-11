@@ -1,0 +1,105 @@
+<div class="container p-5">
+  <div class="row">
+    <div class="col">
+      <div class="flex text-center text-white">
+        <h4>Registration Form</h4>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="registrationForm">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="name"
+            formControlName="name"
+            [ngClass]="registrationForm.controls.name.valid ? '' : 'is-invalid' "
+          />
+          <label for="name">Name</label>
+          <div class="invalid-feedback">Please input a username.</div>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+            formControlName="email"
+            [ngClass]="registrationForm.controls.email.valid ? '' : 'is-invalid' "
+          />
+          <label for="floatingInput">Email address</label>
+          <div class="invalid-feedback">Please use valid email.</div>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input
+            type="number"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Telephone Number"
+            formControlName="telephone"
+            [ngClass]="registrationForm.controls.telephone.valid ? '' : 'is-invalid' "
+          />
+          <label for="floatingInput">Telephone Number</label>
+          <div class="invalid-feedback">Please input correct phone number</div>
+
+        </div>
+
+        <div class="form-floating mb-3">
+          <input
+            type="date"
+            class="form-control"
+            id="datepicker"
+            placeholder="date of birth"
+            formControlName="dob"
+            [max]="maxdob"
+          />
+          <label for="datepicker">date of birth</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <select
+            formControlName="gender"
+            class="form-select"
+            id="floatingSelect"
+            aria-label="Floating label select example"
+          >
+            <option selected disabled>Open this select menu</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <label for="floatingSelect">Gender</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <div class="form-floating">
+            <textarea
+              formControlName="address"
+              class="form-control"
+              placeholder="Address"
+              id="floatingTextarea"
+              style="height: 100px"
+            ></textarea>
+            <label for="floatingTextarea">Address</label>
+          </div>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="submit" (click)="onSubmit()">
+            Register
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" #loadingModal id="loadingModal">
+  <div class="modal-dialog d-flex justify-content-center loading-spinner">
+    <div class="spinner-border text-light"></div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="success-bg">
+  <div class="container p-5">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <p>name : {{ parameter["body"].name }}</p>
+            <p>email : {{ parameter["body"].email }}</p>
+            <p>telephone : {{ parameter["body"].telephone }}</p>
+            <p>dob : {{ parameter["body"].dob }}</p>
+            <p>gender : {{ parameter["body"].gender }}</p>
+            <p>address : {{ parameter["body"].address }}</p>
+            <div class="d-grid">
+              <button class="btn btn-danger" routerLink="/register">
+                back to register page
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
