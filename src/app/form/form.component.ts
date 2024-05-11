@@ -10,6 +10,7 @@ import * as bootstrap from 'bootstrap';
   styleUrl: './form.component.css',
 })
 export class FormComponent {
+
   registrationForm = new FormGroup({
     name: new FormControl('', []),
     email: new FormControl('', []),
@@ -44,14 +45,15 @@ export class FormComponent {
           },
           error: (error) => {
             this.apiResponse = error;
-            console.log(this.apiResponse);
             let errorArray = this.apiResponse?.error.errors;
-            console.log(errorArray);
-            // this.myForm.get('email').setErrors({ 'incorrect': true });
+            if(this.apiResponse.status == 0) {
+              console.log('network error');
+              modal.hide();
+              alert('backend not running! check documentation')
+            }
             for (let index = 0; index < errorArray.length; index++) {
               this.registrationForm.get(errorArray[index].path)?.setErrors({ 'incorrect': true })
             }
-            console.log(this.registrationForm.controls.name.errors);
             // simulate loading
             setTimeout(() => {
               modal.hide();
